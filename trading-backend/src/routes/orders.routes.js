@@ -3,9 +3,7 @@ const router = express.Router();
 const { instruments, orders, uuid } = require("../data/store");
 const { executeOrder } = require("../services/orderExecution.service");
 
-/**
- * Place a new order
- */
+
 router.post("/", (req, res) => {
   const { symbol, orderType, orderStyle, quantity, price } = req.body;
 
@@ -35,7 +33,7 @@ router.post("/", (req, res) => {
     createdAt: new Date().toISOString()
   };
 
-  // MARKET order executes instantly
+  
   if (orderStyle === "MARKET") {
     executeOrder(order, instrument.lastTradedPrice);
   }
@@ -45,9 +43,7 @@ router.post("/", (req, res) => {
   res.status(201).json(order);
 });
 
-/**
- * Get order status
- */
+
 router.get("/:orderId", (req, res) => {
   const order = orders.get(req.params.orderId);
 

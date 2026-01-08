@@ -1,9 +1,6 @@
 const { trades, portfolio, uuid } = require("../data/store");
 
-/**
- * Simulates order execution
- * Market orders execute immediately
- */
+
 function executeOrder(order, marketPrice) {
   order.status = "EXECUTED";
 

@@ -1,29 +1,25 @@
 const { v4: uuid } = require("uuid");
 
-/**
- * This file acts as a fake database.
- * Everything is stored in memory intentionally.
- * Restarting the server will reset data.
- */
+
 
 const instruments = [
   {
-    symbol: "TCS",
+    symbol: "Bajaj Finance Ltd",
     exchange: "NSE",
     instrumentType: "EQUITY",
-    lastTradedPrice: 3820
+    lastTradedPrice: 970.10
   },
   {
-    symbol: "INFY",
+    symbol: "MRF Ltd",
     exchange: "NSE",
     instrumentType: "EQUITY",
-    lastTradedPrice: 1560
+    lastTradedPrice: 148000.00
   }
 ];
 
-const orders = new Map();        // orderId → order
-const trades = [];               // list of executed trades
-const portfolio = new Map();     // symbol → holding
+const orders = new Map();        
+const trades = [];               
+const portfolio = new Map();     
 
 module.exports = {
   instruments,
